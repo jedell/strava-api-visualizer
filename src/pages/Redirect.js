@@ -46,7 +46,7 @@ const Redirect = props => {
             if (_.isEmpty(location)) {
                 return navigate("/")
             }
-            let stravaAuthToken = window.location.search.split("&")[1].slice(5);
+            let stravaAuthToken = location.search.split("&")[1].slice(5);
 
             const tokens = await getAuth(stravaAuthToken);
             props.setUser(tokens);
@@ -57,14 +57,14 @@ const Redirect = props => {
             const user = await getUserData(userID, accessToken);
             props.setUserActivities(user); 
 
+            navigate("/visualizer");
+
         } catch (error) {
             navigate("/")
         }
     };
     useEffect(() => {
         authenticate();
-  
-        navigate("/visualizer");
     });
 
     return (

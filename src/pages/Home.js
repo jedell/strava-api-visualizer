@@ -6,7 +6,7 @@ const clientID = process.env.REACT_APP_STRAVA_CLIENT_ID;
 
 const Home = () => {
   const redirectUrl = "http://localhost:3000/redirect"
-  const scope = "read_all"
+  const scope = "read_all,profile:read_all,activity:read_all"
 
   const handleLogin = () => {
     window.location = `http://www.strava.com/oauth/authorize?client_id=${clientID}&response_type=code&redirect_uri=${redirectUrl}/exchange_token&approval_prompt=force&scope=${scope}`;
