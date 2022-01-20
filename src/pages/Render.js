@@ -54,7 +54,7 @@ const Terrain = () => {
             position={[0, 0, 0]}
             rotation={[-Math.PI / 2, 0, -Math.PI / 2]}
             scale={[1 / 8192, 1 / 8192, 1 / 8192]}>
-            <planeBufferGeometry args={[1024, 1024, 1024, 1024]} />
+            <planeBufferGeometry args={[512, 512, 1024, 1024]} />
             <shaderMaterial
                 uniforms={{
                     // Feed the heightmap
@@ -110,9 +110,9 @@ const Render = ({ user, returnTokens }) => {
     }
     new_poly = scale_array(new_poly, -1, 1)
     for (let i = 0; i < new_poly.length; i++) {
-        new_poly[i] = scale_array2(new_poly[i], [0, 0, 0], 1)
+        new_poly[i] = scale_array2(new_poly[i], [0, 0, 0], 0.04500531138264616/2)
     }
-    for (let i = 0; i< new_poly.length; i++) {
+    for (let i = 0; i < new_poly.length; i++) {
         new_poly[i] = rotate_x(new_poly[i], 11)
         new_poly[i] = rotate_y(new_poly[i], 0)
         new_poly[i] = rotate_z(new_poly[i], 9)
