@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Redirect from "./pages/Redirect";
 import Visualizer from "./pages/Visualizer"
+import Render from "./pages/Render"
 
 function App() {
   const [user, setUser] = useState([]);
@@ -21,7 +22,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} exact={true} />
           <Route path="/redirect/*" element={<Redirect updateUser={userFromRedirect} />} />
-          <Route path="/visualizer" element={<Visualizer user={user}/>} />
+          <Route path="/visualizer" element={<Render user={user}/>} />
+          {/* //Canvas => Visualizer */}
         </Routes>
       </div>
     </BrowserRouter>
